@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Fun to use dapp poll." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Poll With Friends</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div id="create">
+        <section class="section">
+            <div class="container is-poll">
+                <div class="box is-brand-box">
+                    <h2 class="title is-size-3-tablet is-size-4-mobile has-text-centered">
+                        Create a Poll
+                    </h2>
+
+                    <form id="castquestion" onSubmit="App.setQ(); App.setD(); App.setAnswer1(); App.setAnswer2(); 
+                        App.setAnswer3(); App.setAnswer4(); return false;">
+                        <div class="field">
+                            <label for="questionInput" class="label">Title</label>
+
+                            <input class="input" placeholder="Type your question here..." ref="title" required
+                                id="questionInput" />
+                        </div>
+
+                        <div class="field">
+                            <div v-else>
+                                <div class="field" v-for="n in poll.answer_count" :key="n">
+                                    <input id="answerInput1" class="input" name="extra"
+                                        placeholder="Choose an answer..." v-if="false"></input>
+                                </div>
+
+                                <div class="field">
+                                    <input id="answerInput2" class="input" name="extra"
+                                        placeholder="Choose an answer..." v-if="false"></input>
+                                </div>
+
+                                <div class="field">
+                                    <input id="answerInput3" class="input" name="extra2"
+                                        placeholder="Choose an answer..." v-if="false"></input>
+                                </div>
+
+                                <div class="field">
+                                    <input id="answerInput4" class="input" name="extra2"
+                                        placeholder="Choose an answer..." v-if="false"></input>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="block">
+                            <div class="columns is-action-buttons-wrapper">
+                                <div class="column is-3 is-full-mobile">
+                                    <button class="button is-primary is-fullwidth" id="create-poll">
+                                        Create Poll
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="link">
+
+                        <body>
+                            go to <a href="http://localhost:3000/poll.html">Voting and Results</a>
+                        </body>
+                    </div>
+
+                    <b-loading :is-full-page="false" :active.sync="isLoading" :can-cancel="false"></b-loading>
+                </div>
+            </div>
+        </section>
+    </div>
+    <p id="accountAddress" class="text-center"></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
